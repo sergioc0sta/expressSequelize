@@ -6,11 +6,23 @@ const express = require('express'),
   bodyParser = require('body-parser'),
   queryParser = require('express-query-int');
 
+
 server.use(bodyParser.urlencoded({ extended: true }))
 server.use(bodyParser.json())
 server.use(cors)
 server.use(queryParser())
+server.use(express.static('views'))
+server.use('/', express.static('api/views'))
+server.use('/', express.static('api/views/html'))
+server.use('/public', express.static('api/views'))
 
 server.listen(port, host, ()=>{console.log('Server UP ;)')})
 
+
 module.exports = server
+
+
+
+
+
+
