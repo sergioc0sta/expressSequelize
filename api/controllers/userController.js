@@ -16,7 +16,7 @@ const getAllUsers = (req, res) => {
 }
 
 const findOneUser = (req, res) =>{
-	var id = req.params.id
+	var id = req.body.id
 	Post.findOne({
 		where: {
 			id: id
@@ -52,7 +52,7 @@ const updateUser = (req, res) => {
 }
 
 const deleteUser = (req, res) => {
-    var id = req.params.id
+    var id = req.body.id
 	Post.destroy({
 		where: {
 			id: id

@@ -6,8 +6,6 @@ executar
 
 
 
-
-
 configurar ficheiro database.js
     Sequelize('DATABASE', 'USER', 'PASSWORD',{
     host: 'IP',

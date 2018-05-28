@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
-const sequelize = new Sequelize('nomeDaBaseDeDados', 'User', 'Password',{
+const sequelize = new Sequelize('schema', 'user', 'pwd',{
 
-    host: 'localhost',
+    host: 'webitcloud.net',
     dialect: 'mysql', 
     pool: {
         max: 5,
@@ -12,3 +12,4 @@ const sequelize = new Sequelize('nomeDaBaseDeDados', 'User', 'Password',{
 })
 
 module.exports = {connection: sequelize}
+
