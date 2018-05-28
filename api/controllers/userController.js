@@ -16,7 +16,7 @@ const getAllUsers = (req, res) => {
 }
 
 const findOneUser = (req, res) =>{
-	var id = req.body.id
+	var id = req.params.id
 	Post.findOne({
 		where: {
 			id: id

@@ -8,16 +8,14 @@ $(document).ready(function(){
 function updateRow(isimd){
     console.log(isimd)
     $.ajax({
-     url: 'api/find',
-     type: 'POST',
-     data: { "id":isimd.toString()},
+     url: "api/find/"+isimd.toString(),
+     type: 'GET',
      success: function(response){
         console.log(response)
         $("#updateValues").toggle()
         $('#firstName').val(response.firstName)
         $('#secondName').val(response.secondName)
         $('#id').val(response.id)
-         
      },
      error: function (data) { alert('Não foi possivel carregar a tabela!') } 
     });
@@ -49,7 +47,7 @@ $('#updateValues').validator().on('submit', (e)=>{
             if(data.firstName !== "" )
             {
                 $.ajax({
-                type: 'POST',
+                type: 'PUT',
                 url: "api/post/"+id,
                 data: JSON.stringify(data),
                 contentType: 'application/json',
@@ -69,7 +67,7 @@ $('#updateValues').validator().on('submit', (e)=>{
 function deleteRow(isimd){
     $.ajax({
      url: 'api/delete',
-     type: 'POST',
+     type: 'DELETE',
      data: { "id":parseInt(isimd)},
      success: function(response){
         getList()
